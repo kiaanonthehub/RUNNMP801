@@ -1,4 +1,4 @@
-#---------------------------------Code---------------------------------------------
+#Author : Kiaan Maharaj
 
 #!/bin/bash
 
@@ -51,13 +51,3 @@ for directory in "${directories[@]}"; do
         echo "No files found starting with 'daily_batch' in $directory"
     fi
 done
-
-#----------------------------------Notes-------------------------------------
-
-# -f "$file" is a conditional statement that checks if the specified $file is a regular file.
-# (i.e., not a directory, symbolic link, or other special file type).
-
-# ${#files[@]} -gt 0, it checks if the length of the files array is greater than zero
-
-
-# files array contains the filenames "file1.txt", "file2.txt", and "file3.txt", ${files[@]} will represent "file1.txt file2.txt file3.txt".
