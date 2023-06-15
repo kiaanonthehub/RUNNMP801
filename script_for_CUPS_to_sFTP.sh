@@ -15,10 +15,6 @@ directories=(
     "/soc/mcare/res/ps"
     "/soc/mnet/res/ps"
 )
-
-# Get the current date
-current_date=$(date +%Y%m%d)
-
 # Loop through the directories
 for directory in "${directories[@]}"; do
     echo "Processing directory: $directory"
@@ -38,11 +34,14 @@ for directory in "${directories[@]}"; do
                 extension="${filename##*.}"
                 filename="${filename%.*}"
 
+                # Get the directory path of the file
+                directory_path=$(dirname "$file")
+
                 # Construct the new file name with the current date appended
                 new_filename="${filename}_${current_date}.${extension}"
 
                 # Move the file to the new location with the new name
-                mv "$file" "$directory/$new_filename"
+                mv "$file" "$directory_path/$new_filename"
 
                 echo "File moved aside: $filename -> $new_filename"
             fi
